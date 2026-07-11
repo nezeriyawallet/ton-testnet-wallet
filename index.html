@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#101827" />
+    <title>TON Test Wallet</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div>
+          <p class="eyebrow">TESTNET</p>
+          <h1>TON Wallet</h1>
+        </div>
+        <div id="ton-connect" aria-label="Підключення гаманця"></div>
+      </header>
+
+      <section class="card balance-card" aria-live="polite">
+        <p class="label">Баланс</p>
+        <p class="balance"><span id="balance">—</span> <span>TON</span></p>
+        <p id="wallet-address" class="address">Підключіть гаманець</p>
+      </section>
+
+      <section class="card">
+        <div class="section-title">
+          <h2>Надіслати TON</h2>
+          <span class="badge">Testnet</span>
+        </div>
+        <form id="send-form">
+          <label for="recipient">Адреса одержувача</label>
+          <input id="recipient" name="recipient" placeholder="UQ... або EQ..." autocomplete="off" required />
+          <label for="amount">Сума</label>
+          <div class="amount-input">
+            <input id="amount" name="amount" type="number" inputmode="decimal" min="0.01" step="0.01" placeholder="0.00" required />
+            <span>TON</span>
+          </div>
+          <button id="send-button" type="submit" disabled>Підключіть гаманець</button>
+        </form>
+        <p id="status" class="status" role="status">Перекази працюють лише з testnet-гаманцем.</p>
+      </section>
+
+      <section class="notice">
+        <strong>Тестовий режим</strong>
+        <p>Тут використовуються тестові TON без реальної вартості. Не вводьте seed-фразу або приватний ключ ніде в застосунку.</p>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

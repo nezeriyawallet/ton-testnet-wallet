@@ -1,0 +1,7 @@
+{
+  "url": "https://YOUR-PUBLIC-DOMAIN.example",
+  "name": "TON Test Wallet",
+  "iconUrl": "https://raw.githubusercontent.com/ton-connect/demo-dapp-with-react-ui/main/public/ton.svg",
+  "termsOfUseUrl": "https://YOUR-PUBLIC-DOMAIN.example",
+  "privacyPolicyUrl": "https://YOUR-PUBLIC-DOMAIN.example"
+}
