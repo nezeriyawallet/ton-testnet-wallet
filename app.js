@@ -7,7 +7,7 @@ const copy=async text=>{try{await navigator.clipboard.writeText(text);say('Ад�
 async function loadBalance(a){balance.textContent='…';try{const r=await fetch('https://testnet.tonapi.io/v2/accounts/'+encodeURIComponent(a));if(!r.ok)throw Error();const d=await r.json();balance.textContent=(Number(d.balance)/1e9).toFixed(2)}catch{balance.textContent='—';say('Не вдалося отримати баланс.','error')}}
 function changeWallet(w){document.querySelectorAll('.panel').forEach(x=>x.classList.add('hidden'));if(!w){welcome.classList.remove('hidden');walletScreen.classList.add('hidden');return}const a=w.account.address;welcome.classList.add('hidden');walletScreen.classList.remove('hidden');address.textContent=short(a);address.title=a;receiveAddress.textContent=a;loadBalance(a);say('Гаманець підключено до testnet.','success')}
 ui.onStatusChange(changeWallet);changeWallet(ui.wallet);
-$('#connect-main').onclick=()=>ui.openModal();
+$('#connect-main').onclick=()=>ui.openModal();$('#create-wallet').onclick=()=>{say('Оберіть Tonkeeper у списку, щоб створити testnet-гаманець.');ui.openModal()};
 $('#copy-address').onclick=()=>ui.wallet&&copy(ui.wallet.account.address);$('#copy-receive').onclick=()=>ui.wallet&&copy(ui.wallet.account.address);
 [['#show-send','#send-panel'],['#show-receive','#receive-panel'],['#show-settings','#settings-panel']].forEach(([b,p])=>$(b).onclick=()=>$(p).classList.toggle('hidden'));
 document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>$('#'+b.dataset.close).classList.add('hidden'));
